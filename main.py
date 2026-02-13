@@ -321,4 +321,6 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=port)
-
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
